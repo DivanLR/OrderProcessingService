@@ -6,6 +6,7 @@
   <Folder Name="/src/">
     <Project Path="Order.Processing.Application/Order.Processing.Application.csproj" />
     <Project Path="Order.Processing.Domain/Order.Processing.Domain.csproj" Id="461d4b60-8dae-425a-a2f7-662142215fce" />
+    <Project Path="Order.Processing.Infrastructure/Order.Processing.Infrastructure.csproj" Id="210cdff9-d318-4594-a636-bb9964ba411d" />
     <Project Path="OrderProcessing/Order.Processing.Api.csproj" />
   </Folder>
   <Folder Name="/tests/">
