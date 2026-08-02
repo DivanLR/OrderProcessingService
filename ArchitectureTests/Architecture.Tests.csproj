@@ -18,6 +18,7 @@
   <ItemGroup>
     <ProjectReference Include="..\Order.Processing.Domain\Order.Processing.Domain.csproj" />
     <ProjectReference Include="..\Order.Processing.Application\Order.Processing.Application.csproj" />
+    <ProjectReference Include="..\Order.Processing.Infrastructure\Order.Processing.Infrastructure.csproj" />
     <ProjectReference Include="..\OrderProcessing\Order.Processing.Api.csproj" />
   </ItemGroup>
 

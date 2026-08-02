@@ -10,6 +10,6 @@
     <Project Path="OrderProcessing/Order.Processing.Api.csproj" />
   </Folder>
   <Folder Name="/tests/">
-    <Project Path="ArchitectureTests/ArchitectureTests.csproj" Id="5c83081a-b15b-462a-b098-02f9aa9b6c2d" />
+    <Project Path="ArchitectureTests/Architecture.Tests.csproj" Id="5c83081a-b15b-462a-b098-02f9aa9b6c2d" />
   </Folder>
 </Solution>

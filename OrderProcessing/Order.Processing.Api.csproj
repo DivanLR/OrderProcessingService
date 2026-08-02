@@ -7,4 +7,8 @@
     <PackageReference Include="TngTech.ArchUnitNET.xUnit" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\Order.Processing.Application\Order.Processing.Application.csproj" />
+  </ItemGroup>
+
 </Project>
