@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 
-namespace Order.Processing.Api.Infrastructure;
+namespace Order.Processing.Api.Extensions;
 
 public class GlobalExceptionHandler
 {

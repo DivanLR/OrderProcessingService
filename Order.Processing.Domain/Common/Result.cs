@@ -24,6 +24,7 @@ public class Result
     public bool IsSuccess { get; }
     public bool IsFailure => !IsSuccess;
     public Error? Error { get; }
+    public virtual object? ValueOrDefault => null;
 
     public static Result Success() => new(true, null);
     public static Result Failure(Error error) => new(false, error);
@@ -40,4 +41,5 @@ public class Result<T> : Result
     }
 
     public T? Value { get; }
+    public override object? ValueOrDefault => Value;
 }

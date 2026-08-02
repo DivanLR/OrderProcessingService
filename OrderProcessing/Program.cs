@@ -1,5 +1,7 @@
 using System.Globalization;
+using Order.Processing.Api.Extensions;
 using Order.Processing.Api.Middleware;
+using Order.Processing.Application;
 using Serilog;
 
 WebApplicationBuilder builder = WebApplication.CreateBuilder(args);
@@ -12,9 +14,11 @@ builder.Host.UseSerilog((context, loggerConfiguration) =>
 
 // Add services to the container.
 
-builder.Services.AddControllers();
+builder.Services.AddControllers(options => options.Filters.Add<ResultActionFilter>());
 // Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
 builder.Services.AddOpenApi();
+
+builder.Services.AddApplication();
 
 WebApplication app = builder.Build();
 

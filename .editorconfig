@@ -417,3 +417,15 @@ dotnet_diagnostic.S6605.severity = none
 
 # S6781: JWT secret keys should not be disclosed
 dotnet_diagnostic.S6781.severity = none
+
+# IDE0008: Use explicit type instead of 'var'
+dotnet_diagnostic.IDE0008.severity = none
+
+# CA1852: Type can be sealed
+dotnet_diagnostic.CA1852.severity = none
+
+# S8969: Remove this null-forgiving operator
+dotnet_diagnostic.S8969.severity = none
+
+# S6960: Controller has multiple responsibilities
+dotnet_diagnostic.S6960.severity = none

@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Order.Processing.Domain.Common;
 
-public sealed record Error(string Code, string Message, ErrorType Type = ErrorType.Failure)
+public record Error(string Code, string Message, ErrorType Type = ErrorType.Failure)
 {
     public static Error NotFound(string code, string message) => new(code, message, ErrorType.NotFound);
     public static Error Validation(string message) => new("validation_error", message, ErrorType.Validation);
