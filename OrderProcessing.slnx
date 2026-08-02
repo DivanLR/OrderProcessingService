@@ -8,5 +8,7 @@
     <Project Path="Order.Processing.Domain/Order.Processing.Domain.csproj" Id="461d4b60-8dae-425a-a2f7-662142215fce" />
     <Project Path="OrderProcessing/Order.Processing.Api.csproj" />
   </Folder>
-  <Folder Name="/tests/" />
+  <Folder Name="/tests/">
+    <Project Path="ArchitectureTests/ArchitectureTests.csproj" Id="5c83081a-b15b-462a-b098-02f9aa9b6c2d" />
+  </Folder>
 </Solution>
