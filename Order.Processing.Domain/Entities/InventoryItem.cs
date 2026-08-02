@@ -1,12 +1,26 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+using Order.Processing.Domain.Common;
 
 namespace Order.Processing.Domain.Entities;
 
-public class InventoryItem
+public sealed class InventoryItem
 {
-    public string ProductId { get; init; }
-    public int AvailableQuantity { get; init; }
-    public int ReservedQuantity { get; init; }
+    public required string ProductId { get; init; }
+    public int AvailableQuantity { get; private set; }
+    public int ReservedQuantity { get; private set; }
+
+    public Result Reserve(int quantity)
+    {
+        AvailableQuantity -= quantity;
+        ReservedQuantity += quantity;
+
+        return Result.Success();
+    }
+
+    public Result Release(int quantity)
+    {
+        AvailableQuantity += quantity;
+        ReservedQuantity -= quantity;
+
+        return Result.Success();
+    }
 }

@@ -5,4 +5,12 @@
   <ItemGroup>
     <ProjectReference Include="..\Order.Processing.Domain\Order.Processing.Domain.csproj" />
   </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Features\Orders\CreateOrder\" />
+    <Folder Include="Features\Orders\GetOrder\" />
+    <Folder Include="Features\Orders\GetAllOrders\" />
+    <Folder Include="Features\Orders\UpdateOrder\" />
+    <Folder Include="Features\Payments\GetPaymentStatus\" />
+    <Folder Include="Features\Payments\ProcessPayment\" />
+  </ItemGroup>
 </Project>
