@@ -1,12 +1,11 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 
-namespace OrderProcessing.Controllers
+namespace OrderProcessing.Controllers;
+
+public class InventoryController : Controller
 {
-    public class InventoryController : Controller
+    public IActionResult Index()
     {
-        public IActionResult Index()
-        {
-            return View();
-        }
+        return View();
     }
 }

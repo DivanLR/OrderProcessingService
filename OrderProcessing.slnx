@@ -1,4 +1,12 @@
 <Solution>
-  <Project Path="Order.Processing.Application/Order.Processing.Application.csproj" />
-  <Project Path="OrderProcessing/Order.Processing.Api.csproj" />
+  <Folder Name="/Solution Items/">
+    <File Path=".editorconfig" />
+    <File Path="Directory.Build.props" />
+  </Folder>
+  <Folder Name="/src/">
+    <Project Path="Order.Processing.Application/Order.Processing.Application.csproj" />
+    <Project Path="Order.Processing.Domain/Order.Processing.Domain.csproj" Id="461d4b60-8dae-425a-a2f7-662142215fce" />
+    <Project Path="OrderProcessing/Order.Processing.Api.csproj" />
+  </Folder>
+  <Folder Name="/tests/" />
 </Solution>
