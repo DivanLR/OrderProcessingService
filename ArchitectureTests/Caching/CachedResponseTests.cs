@@ -7,8 +7,6 @@ using Order.Processing.Domain.Entities;
 
 namespace ArchitectureTests.Caching;
 
-// HybridCache serialises every cached payload, so a response type that cannot round-trip
-// through System.Text.Json fails on the first cache hit rather than at startup.
 public class CachedResponseTests
 {
     private static readonly DateTime Timestamp = new(2026, 8, 4, 9, 30, 0, DateTimeKind.Utc);

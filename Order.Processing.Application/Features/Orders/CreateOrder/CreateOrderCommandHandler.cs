@@ -51,9 +51,6 @@ public sealed class CreateOrderCommandHandler
             }
         }
 
-        // ponytail: no inventory reservation here, so an order may be created for stock that
-        // is not available. Call the reserve slice inside a transaction once orders must hold
-        // stock at creation time.
         var order = Domain.Entities.Order.Create(
             command.CustomerId,
             command.Items.Select(item => new OrderItem

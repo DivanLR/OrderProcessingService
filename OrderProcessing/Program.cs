@@ -4,6 +4,7 @@ using System.Text.Json.Serialization;
 using Order.Processing.Api.Extensions;
 using Order.Processing.Api.Middleware;
 using Order.Processing.Application;
+using Order.Processing.Infrastructure;
 using Scalar.AspNetCore;
 using Serilog;
 
@@ -24,9 +25,15 @@ builder.Services
 // Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
 builder.Services.AddOpenApi();
 builder.Services.AddApplication();
+builder.Services.AddInfrastructure(builder.Configuration);
 builder.Services.AddHybridCache();
 
 WebApplication app = builder.Build();
+
+if (app.Environment.IsDevelopment())
+{
+    await app.Services.InitialiseDatabaseAsync();
+}
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())

@@ -1,5 +1,6 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
+using Order.Processing.Domain.Entities;
 
 namespace Order.Processing.Infrastructure.Persistence.Configurations;
 
@@ -22,6 +23,9 @@ public sealed class OrderConfiguration : IEntityTypeConfiguration<Domain.Entitie
 
         builder.OwnsMany(order => order.Items, itemBuilder =>
         {
+            itemBuilder.WithOwner().HasForeignKey("OrderId");
+            itemBuilder.HasKey("OrderId", nameof(OrderItem.ProductId));
+
             itemBuilder.Property(item => item.ProductId)
                 .IsRequired()
                 .HasMaxLength(64);

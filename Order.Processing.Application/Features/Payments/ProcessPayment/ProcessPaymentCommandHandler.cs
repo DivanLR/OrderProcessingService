@@ -43,9 +43,6 @@ public sealed class ProcessPaymentCommandHandler
                 $"Order with Id '{command.OrderId}' not found."));
         }
 
-        // ponytail: no payment gateway wired, so the transaction is recorded as Completed on
-        // creation. Add a gateway call here and set Status from its outcome (Pending while
-        // in flight, Failed on decline) when a real provider is integrated.
         var transaction = new PaymentTransaction
         {
             OrderId = command.OrderId,

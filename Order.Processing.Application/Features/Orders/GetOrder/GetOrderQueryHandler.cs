@@ -20,9 +20,6 @@ public sealed class GetOrderQueryHandler : IQueryHandler<GetOrderQuery, Result<O
 
     public async Task<Result<OrderResponse>> HandleAsync(GetOrderQuery query, CancellationToken cancellationToken = default)
     {
-        // ponytail: a miss is cached as well, because HybridCache always stores the factory
-        // result. Every write invalidates the orders tag, so a create or status change clears
-        // the negative entry before it can be read again.
         OrderResponse? response = await _cache.GetOrCreateAsync(
             $"orders:{query.OrderId}",
             (context: _context, query.OrderId),

@@ -18,10 +18,8 @@ public class InventoryEndpointsTests : IClassFixture<ApiTestFactory>
     [Fact]
     public async Task GetAvailability_Should_ReturnSeededQuantities()
     {
-        // Act
         HttpResponseMessage response = await _client.GetAsync("/api/inventory/PRD-002");
 
-        // Assert
         Assert.Equal(HttpStatusCode.OK, response.StatusCode);
 
         AvailabilityDto? availability = await response.Content.ReadFromJsonAsync<AvailabilityDto>(JsonSerializerOptions.Web);
@@ -35,25 +33,20 @@ public class InventoryEndpointsTests : IClassFixture<ApiTestFactory>
     [Fact]
     public async Task GetAvailability_Should_ReturnNotFound_WhenProductDoesNotExist()
     {
-        // Act
         HttpResponseMessage response = await _client.GetAsync("/api/inventory/PRD-UNKNOWN");
 
-        // Assert
         Assert.Equal(HttpStatusCode.NotFound, response.StatusCode);
     }
 
     [Fact]
     public async Task Reserve_Should_MoveQuantity_AndInvalidateTheCachedRead()
     {
-        // Arrange: the first read populates the cache, so a stale entry would fail the assert below.
         AvailabilityDto before = await GetAvailabilityAsync("PRD-001");
 
-        // Act
         HttpResponseMessage response = await _client.PostAsJsonAsync(
             "/api/inventory/reserve",
             new { productId = "PRD-001", quantity = 4 });
 
-        // Assert
         Assert.Equal(HttpStatusCode.NoContent, response.StatusCode);
 
         AvailabilityDto after = await GetAvailabilityAsync("PRD-001");
@@ -65,7 +58,6 @@ public class InventoryEndpointsTests : IClassFixture<ApiTestFactory>
     [Fact]
     public async Task Release_Should_ReturnQuantityToAvailable()
     {
-        // Arrange
         AvailabilityDto before = await GetAvailabilityAsync("PRD-003");
 
         HttpResponseMessage reserveResponse = await _client.PostAsJsonAsync(
@@ -74,12 +66,10 @@ public class InventoryEndpointsTests : IClassFixture<ApiTestFactory>
 
         reserveResponse.EnsureSuccessStatusCode();
 
-        // Act
         HttpResponseMessage releaseResponse = await _client.PostAsJsonAsync(
             "/api/inventory/release",
             new { productId = "PRD-003", quantity = 5 });
 
-        // Assert
         Assert.Equal(HttpStatusCode.NoContent, releaseResponse.StatusCode);
 
         AvailabilityDto after = await GetAvailabilityAsync("PRD-003");
@@ -91,12 +81,10 @@ public class InventoryEndpointsTests : IClassFixture<ApiTestFactory>
     [Fact]
     public async Task Reserve_Should_ReturnNotFound_WhenProductDoesNotExist()
     {
-        // Act
         HttpResponseMessage response = await _client.PostAsJsonAsync(
             "/api/inventory/reserve",
             new { productId = "PRD-UNKNOWN", quantity = 1 });
 
-        // Assert
         Assert.Equal(HttpStatusCode.NotFound, response.StatusCode);
     }
 
