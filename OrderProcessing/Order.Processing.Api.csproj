@@ -3,6 +3,7 @@
   <ItemGroup>
     <PackageReference Include="FluentValidation" />
     <PackageReference Include="Microsoft.AspNetCore.OpenApi" />
+    <PackageReference Include="Microsoft.Extensions.Caching.Hybrid" />
     <PackageReference Include="Serilog.AspNetCore" />
     <PackageReference Include="Serilog.Sinks.Console" />
     <PackageReference Include="TngTech.ArchUnitNET.xUnit" />
@@ -10,6 +11,10 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Order.Processing.Application\Order.Processing.Application.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <InternalsVisibleTo Include="Order.Processing.Api.Tests" />
   </ItemGroup>
 
 </Project>
